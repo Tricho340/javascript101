@@ -76,5 +76,34 @@ exports.isNumberBalancedExerciseTest = function(test) {
 };
 
 exports.countingSubstringsExerciseTest = function(test) {
+  var count_substrings = require('./9_counting_substrings.js').count_substrings;
+  test.equal(count_substrings("This is a test string", "is"), 2);
+  test.equal(count_substrings("babababa", "baba"), 2);
+  test.equal(count_substrings("JavaScript is an awesome language to program in!", "o"), 3);
+  test.equal(count_substrings("We have nothing in common!", "really?"), 0);
+  test.equal(count_substrings("This is this and that is this", "this"), 2);
+
+  test.done();
+};
+
+exports.countVowelsExerciseTest = function(test) {
+  var count_vowels = require('./10_vowels_in_a_string.js').count_vowels;
+  test.equal(count_vowels("JavaScript"), 3);
+  test.equal(count_vowels("Theistareykjarbunga"), 8);
+  test.equal(count_vowels("grrrrgh"), 0);
+  test.equal(count_vowels("Github is the second best thing that happend to programmers, after the keyboard!"), 22);
+  test.equal(count_vowels("A nice day to code!"), 8);
+
+  test.done();
+};
+
+exports.countConsonantsExerciseTest = function(test) {
+  var count_consonants = require('./11_consonants_in_a_string.js').count_consonants;
+  test.equal(count_consonants("JavaScript"), 7);
+  test.equal(count_consonants("Theistareykjarbunga"), 11);
+  test.equal(count_consonants("grrrrgh"), 7);
+  test.equal(count_consonants("Github is the second best thing that happend to programmers, after the keyboard!"), 44);
+  test.equal(count_consonants("A nice day to code!"), 6);
+
   test.done();
 };

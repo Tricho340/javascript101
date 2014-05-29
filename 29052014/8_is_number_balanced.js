@@ -21,7 +21,7 @@ var is_number_balanced = function(n) {
   }
 
   leftPartDigits = numberDigits.filter(function(currentValue, currentIndex) {
-      return (currentIndex < arrayHalfIndex);
+      return (currentIndex < arrayHalfIndex); // obviously we should have done Array.slice to split the string to arrays......
   });
   rightPartDigits = numberDigits.filter(function(currentValue, currentIndex) {
     if (numberOfDigits % 2 === 0) {
