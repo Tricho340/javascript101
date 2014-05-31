@@ -60,7 +60,9 @@ var parseStudentData = function() {
   };
 
   var htmlForAllGroups = getHtmlForAllGroups(studentsData);
+
   console.log(htmlForAllGroups);
+  return htmlForAllGroups;
 };
 
 exports.parseStudentData = parseStudentData;
