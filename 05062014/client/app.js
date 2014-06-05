@@ -1,7 +1,11 @@
 "use strict";
 
 $(document).ready(function() {
+  var MAX_TABLES_PER_ROW = 3;
+  var BOOTSTRAP_TABLE_WIDTH_CLASS = "col-xs-";
+
   var isInGroupMode = false;
+  var defaultTableWidthInColumns;
 
   /* Group by definition */
   var groupBy = function(groupingFunction, arr) {
@@ -44,11 +48,14 @@ $(document).ready(function() {
 
   var studentsData;
   var getTableHeaderHtml = function() {
-    var tableHeaderHtml = "<div class=\"col-xs-4\"><table class=\"table\">";
-    tableHeaderHtml += "<thead><tr><th>Id</th>";
-    tableHeaderHtml += "<th>Name</th><th>Course</th></tr>";
-    tableHeaderHtml += "</thead>";
-    tableHeaderHtml += "<tbody>";
+    var tableHeaderHtml = ["<div class=\"",
+                            BOOTSTRAP_TABLE_WIDTH_CLASS,
+                            defaultTableWidthInColumns,
+                            "\"><table class=\"table\">",
+                           "<thead><tr><th>Id</th>",
+                           "<th>Name</th><th>Course</th></tr>",
+                           "</thead>",
+                           "<tbody>"].join("");
 
     return tableHeaderHtml;
   };
@@ -96,7 +103,7 @@ $(document).ready(function() {
   };
 
   var showHtmlInTableContainer = function(html) {
-    var $tableContainer = $('#start-here .row > div').first();
+    var $tableContainer = $('#tablesContainer');
     $tableContainer.empty();
     $tableContainer.append(html);
   };
@@ -109,12 +116,30 @@ $(document).ready(function() {
     return studentsData;
   };
 
+  var getDefaultTableWidth = function(itemsCount) {
+    if (itemsCount === 1) {
+      return 12;
+    } else if (itemsCount === 2) {
+      return 6;
+    }
+
+    return 4;
+  };
+
   var getGrouppedStudentsTablesHtml = function(grouppedStudentsData) {
     var grouppedTablesHtml = "";
 
+    var tablesAdded = 0;
+    defaultTableWidthInColumns = getDefaultTableWidth(grouppedStudentsData.length);
+
     grouppedStudentsData.forEach(function(currentGroup) {
+      if (tablesAdded % MAX_TABLES_PER_ROW === 0) {
+        grouppedTablesHtml += "</div><div class=\"row\">";
+      }
       grouppedTablesHtml += getTableHtml(currentGroup);
+      tablesAdded++;
     });
+    grouppedTablesHtml += "</div>";
 
     return grouppedTablesHtml;
   };
