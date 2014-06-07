@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Swapping indexes</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Move selected items from the first list to the second list</h1>
+        <div class="row">
+            <div class="col-xs-4">
+                <select id="leftDropdown" size="10" multiple class="form-control">
+                </select>
+            </div>
+            <div class="col-xs-1 buttons">
+                <div class="button-control">
+                    <button class="btn btn-success">--&gt;</button>
+                </div>
+
+                <div class="button-control">
+                    <button class="btn btn-warning">&lt;--</button>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <select id="rightDropdown" multiple size="10" class="form-control">
+
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <p><span class="selectItemsCaption">Left paragraph items:</span> <span id="leftListItemsParagraph"></span></p>
+            </div>
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-4">
+                <p><span class="selectItemsCaption">Right paragraph items:</span> <span id="rightListItemsParagraph"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
