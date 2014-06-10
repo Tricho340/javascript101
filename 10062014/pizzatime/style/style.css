@@ -1,0 +1,11 @@
+.pizzeria-open {
+	color: green;
+}
+
+.pizzeria-closed {
+	color: red;
+}
+
+span.howsPizzaBusinessGoing:before {
+	content: " and ";
+};
