@@ -24,6 +24,7 @@ function PizzaOrder(pizza) {
 
 PizzaOrder.prototype.start = function() {
   var that = this;
+  isInProgress = true;
   setTimeout(function() {
     that.callback(that.pizza, that);
   }, that.pizza.timeToMake);
