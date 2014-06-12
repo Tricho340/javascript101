@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookstore</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HackBulgaria's Bookstore</h1>
+        <hr />
+        <div class="books_area">
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Shopping cart:</h1>
+                <div id="cart-container">
+                </div>
+                <p>Total number of pages in cart: <span id="numberOfPagesInCart"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="js/library.js"></script>
+    <script id="single-book-template" type="text/template">
+        <div class="col-xs-4">
+            <h3><%=title%></h3>
+            <img src="<%=image_url%>">
+            <p>Average rating: <%=average_rating%></p>
+            <p>ISBN: <span class="bookisbn"><%=isbn%></span></p>
+            <button class="btn btn-info readDescriptionButton">Read description</button>
+            <button class="btn btn-success addToCartButton">Add to Cart</button>
+        </div>
+    </script>
+    <script id="book-description-modal-template" type="text/template">
+        <div class="modal" id="bookDescriptionModal">
+            <h3><%=title%></h3>
+            <p><%=description%></p>
+        </div>
+    </script> 
+    <script id="single-cart-item-template" type="text/template">
+        <div class="col-xs-4">
+            <h3><%=title%></h3>
+            <img src="<%=image_url%>">
+            <p>Average rating: <%=average_rating%></p>
+            <p>ISBN: <span class="bookisbn"><%=isbn%></span></p>
+            <button id="<%=purchaseId%>" class="btn btn-warning removeFromCartButton">Remove from cart</button>
+        </div>
+    </script>
+</body>
+</html>
