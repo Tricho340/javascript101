@@ -17,6 +17,7 @@ $(document).ready(function() {
   BasicTimer.prototype.startCount = function() {
     this.initializeCounter();
     var that = this; // necessary because setInterval executes callback function with this = window
+    this.resetIntervalIfNecessary();
     this.currentInterval = setInterval(function() {
       that.tick.call(that);
     }, 1000);
@@ -30,14 +31,17 @@ $(document).ready(function() {
 
   BasicTimer.prototype.handleTimeOverIfNecessary = function() {
     if (this.isTimeOver()) {
+      this.resetIntervalIfNecessary();
+    }
+  };
+
+  BasicTimer.prototype.resetIntervalIfNecessary = function() {
+    if (this.currentInterval) {
       clearInterval(this.currentInterval);
     }
   };
 
   BasicTimer.prototype.resetCount = function() {
-    if (this.currentInterval) {
-      clearInterval(this.currentInterval);
-    }
     this.targetMinutes = 0;
     this.targetSeconds = 0;
     this.minutes = 0;
@@ -128,6 +132,7 @@ $(document).ready(function() {
   function startCountingUp() {
     var targetMinutes = $('#minutes').val();
     var targetSeconds = $('#seconds').val();
+    timer.resetIntervalIfNecessary();
     timer = new CountUpTimer(targetMinutes, targetSeconds);
     timer.startCount();
   }
@@ -135,6 +140,7 @@ $(document).ready(function() {
   function startCountingDown() {
     var targetMinutes = $('#minutes').val();
     var targetSeconds = $('#seconds').val();
+    timer.resetIntervalIfNecessary();
     timer = new CountDownTimer(targetMinutes, targetSeconds);
     timer.startCount();
   }
