@@ -1,0 +1,45 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<form id="parseTemplateForm">
+			<label for="jsonObjectArea">JSON object:</label>
+			<textarea id="jsonObjectArea"></textarea>
+			<label for="tagType">Tag type:</label>
+			<select id="tagType">
+				<option value="0">Link</option>
+				<option value="1">Paragraph</option>
+				<option value="2">List</option>
+				<option value="3">Tag</option>
+			</select>
+			<input type="submit" value="Parse as template">
+		</form>
+		<h3>Output:</h3>
+		<p id="templateOutputArea"></p>
+
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../bower_components/lodash/dist/lodash.min.js"></script>
+		<script src="./app.js"></script>
+		<script id="linkTemplate" type="text/template">
+			<a href="<%= href %>" title="<%= title %>"><%=label%></a>
+		</script>
+		<script id="paragraphTemplate" type="text/template">
+            <p><%= label %></p>
+		</script>
+		<script id="listTemplate" type="text/template">
+			<<%=type%>>
+				<% _(children).forEach(function(currentValue) { %>
+					<li><%= currentValue.label %></li>
+				<% }) %>
+			</<%=type%>>
+		</script>
+		<script id="tagTemplate" type="text/template">
+			<<%=tagName%>
+				<% _(attributes).forEach(function(currentAttribute) { %>
+					<%=currentAttribute.key%>="<%=currentAttribute.value%>"
+				<% }) %>
+			>
+			</<%=tagName%>>
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "HtmlGenerator",
+  "version": "0.0.1",
+  "homepage": "https://github.com/HackBulgaria/Frontend-JavaScript-1",
+  "authors": [
+    "TrifonStatkov"
+  ],
+  "description": "Just another HTML generator",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "lodash": "~2.4"
+  }
+}

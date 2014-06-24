@@ -1,0 +1,25 @@
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.groceryTypeContainer {
+	display: block;
+	clear: right;
+	border: 1px solid orange;
+	line-height: 0;
+	vertical-align: middle;
+}
+
+.groceryContainer {
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	border: 1px solid gray;
+}
+
+.groceryContainer img {
+	max-width: 300px;
+}
+
+.groceryContainer h3 {
+	color: #fcc;
+}

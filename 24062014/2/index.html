@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/main.css">
+	</head>
+	<body>
+		<div id="templateOutputArea">
+		</div>
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../bower_components/lodash/dist/lodash.min.js"></script>
+		<script src="./app.js"></script>
+		<script id="groceriesTemplate" type="text/template">
+			<% _(groceryTypes).forEach(function(currentGroceryType) { %>
+				<div class="groceryTypeContainer">
+					<h2><%= currentGroceryType %></h2>
+					<% _(groceriesData).forEach(function(currentGrocery) { %>
+						<% if (currentGrocery.type === currentGroceryType) { %>
+							<div class="groceryContainer">
+								<h3><%=currentGrocery.name%></h2>
+								<img src="<%=currentGrocery.image%>">
+							</div>
+						<% } %>
+					<% }) %>
+
+			<% }) %>
+		</script>
+	</body>
+</html>
