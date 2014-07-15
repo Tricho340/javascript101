@@ -1,0 +1,31 @@
+html, body, * {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+	background-image: url(../img/nokia-very-huge-lol.png);
+	background-size: 340px 700px;
+	background-repeat: no-repeat;
+}
+
+div#container {
+	position: relative;
+	width: 800px;
+	height: 700px;
+}
+
+#snakeCanvas {
+	position: absolute;
+	top: 200px;
+	left: 89px;
+	width: 147px;
+	height: 97px;
+	border: 1px solid #253c1f;
+}
+
+div#container > .instructionsArea {
+	position: absolute;
+	width: 50%;
+	right: 0;
+	top: 0;
+}
