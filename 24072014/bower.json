@@ -1,0 +1,20 @@
+{
+  "name": "Enter The Matrix",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Tricho340/javascript101",
+  "authors": [
+    "Trifon Statkov"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.14"
+  }
+}

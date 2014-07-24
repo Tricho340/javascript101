@@ -334,6 +334,12 @@ var GameEngine = (function() {
           SNAKE_MOVEMENT_NORMAL_SPEED = 300,
           SNAKE_MOVEMENT_FAST_SPEED = 100,
           SNAKE_MOVEMENT_GODLIKE_SPEED = 50,
+          KEYBOARD_KEY_UP_CODE = 87,
+          KEYBOARD_KEY_DOWN_CODE = 83,
+          KEYBOARD_KEY_LEFT_CODE = 65,
+          KEYBOARD_KEY_RIGHT_CODE = 68,
+          KEYBOARD_KEY_ESC_CODE = 27,
+
           _snakeSpeed = SNAKE_MOVEMENT_FAST_SPEED,
           _snakeInterval,
           _isPaused = false,
@@ -346,10 +352,12 @@ var GameEngine = (function() {
       }
 
       function initializeSnakeInterval() {
-        var rerenderMethod = rerender;
         var snakeSpeed = _snakeSpeed;
         var that = this;
-        _snakeInterval = setInterval(rerenderMethod, snakeSpeed, that);
+        console.log(that);
+        _snakeInterval = setInterval(function() {
+          rerender();
+        }, snakeSpeed);
       }
 
       function togglePause() {
@@ -361,9 +369,9 @@ var GameEngine = (function() {
         context.clearRect(0, 0, Pixel.CANVAS_ELEMENT_WIDTH_PX, Pixel.CANVAS_ELEMENT_HEIGHT_PX);
       }
 
-      function rerender(context) {
-        if (!context['_isPaused']) {
-          context['_snake'].move();
+      function rerender() {
+        if (!_isPaused) {
+          _snake.move();
         }
       }
 
@@ -541,7 +549,6 @@ var Snake = (function() { // implemented using the Singleton pattern
 
       function snakeBeforeMove() {
         _snakeParticles.shift();
-        clearScreen();
       }
 
       function handleMoveLeft() {
@@ -599,7 +606,8 @@ var Snake = (function() { // implemented using the Singleton pattern
         moveLeft: moveLeft,
         moveRight: moveRight,
         moveUp: moveUp,
-        moveDown: moveDown
+        moveDown: moveDown,
+        move: move
       };
     })();
 
@@ -618,13 +626,7 @@ var Snake = (function() { // implemented using the Singleton pattern
 })();
 
 var App = (function() {
-  var KEYBOARD_KEY_UP_CODE = 87,
-      KEYBOARD_KEY_DOWN_CODE = 83,
-      KEYBOARD_KEY_LEFT_CODE = 65,
-      KEYBOARD_KEY_RIGHT_CODE = 68,
-      KEYBOARD_KEY_ESC_CODE = 27,
-
-      instanceOfApp;
+  var instanceOfApp;
 
   function init() {
     var AppClass = (function() {
