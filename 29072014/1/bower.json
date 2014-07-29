@@ -1,0 +1,13 @@
+{
+  "name": "Making sure we don't get in callback hell",
+  "version": "0.0.0",
+  "main": "app.sj",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
