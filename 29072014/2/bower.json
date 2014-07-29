@@ -1,0 +1,23 @@
+{
+  "name": "Exercise 2",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Tricho340/javascript101",
+  "authors": [
+    "Trifon Statkov"
+  ],
+  "description": "The File Upload with Drag and Drop exercise",
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.14",
+    "q": "1.0.1",
+    "jquery": "~2.1.1"
+  }
+}
