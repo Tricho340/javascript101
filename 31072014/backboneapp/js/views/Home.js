@@ -19,7 +19,8 @@ GitHubApp.Views.Home = Backbone.View.extend({
 
   addUser: function () {
     'use strict';
-    var nameInputted = this.$el.find('#user-input').text();
+    console.log(this);
+    var nameInputted = this.$el.find('#user-input').val();
     console.log(nameInputted);
     var userToAdd = new GitHubApp.Models.User({ login: nameInputted });
     this.model.add(userToAdd);
@@ -34,7 +35,7 @@ GitHubApp.Views.Home = Backbone.View.extend({
 
   render: function () {
     'use strict';
-    this.$el.html(this.template({ users: this.model.toJSON() }));
+    $(this.el).html(this.template({ users: this.model.toJSON() }));
     return this;
   }
 });

@@ -5,8 +5,8 @@ var GitHubApp = GitHubApp || {};
 var GitHubAppRouter = Backbone.Router.extend({
   routes: {
     "": "home",
-    "/user/:username": "user",
-    "/statistics": "stats"
+    "user/:username": "user",
+    "statistics": "stats"
   },
   initialize: function () {
     'use strict';
@@ -40,14 +40,15 @@ var GitHubAppRouter = Backbone.Router.extend({
     } else {
       user = match[0];
     }
-    user.fetch()
-    .done(function () {
+    user.fetch().done(function (result) {
+      console.log("Doneeee");
+      console.log(result);
       // Invoke the FrontCtrl.setView and FrontCtrl.render
       // with appropriate parameters
       GitHubApp.Controllers.FrontCtrl.setView({
         partial: 'partials/user.tpl',
         view: GitHubApp.Views.User,
-        model: user
+        model: result
       });
       GitHubApp.Controllers.FrontCtrl.render();
     });

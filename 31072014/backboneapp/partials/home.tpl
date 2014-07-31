@@ -2,14 +2,14 @@
 <button class="btn btn-primary" id="add-btn">Add</button>
 
 <ul>
-<% _.each(users, function (user, idx) { %>
+<% _.each(users, function (user, index) { %>
   <li>
     <a href="#/user/<%= user.login %>">
       <%= user.login %>
     </a>
     <a href="javascript:void(0)"
       class="delete-btn"
-      data-index="<%= idx %>">[X]</a>
+      data-index="<%= index %>">[X]</a>
   </li>
 <% }); %>
 </ul>
