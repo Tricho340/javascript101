@@ -2,22 +2,32 @@
 	<head>
 	</head>
 	<body>
+		<h1>Game Lobby</h1>
+		<div id="mainContainer">
+		</div>
+
 		<script data-main="js/app" src="bower_components/requirejs/require.js"></script>
 
 		<script id="userLoginTemplate" type="text/x-handlebars-template">
-			<input type="text" class="usernameTextInput">
-			<button class="loginButton">Save</button>
+			<div>
+				<input type="text" class="usernameTextInput">
+				<button class="loginButton">Save</button>
+			</div>
 		</script>
 
 		<script id="waitingForPlayerTemplate" type="text/x-handlebars-template">
-			<p>Waiting for another player...</p>
+			<div>
+				<p>Waiting for another player...</p>
+			</div>
 		</script>
 
 		<script id="gamesListView" type="text/x-handlebars-template">
-			<button class="hostGameButton">Host</button>
-			{{#each games}}
+			<div>
+				<button class="hostGameButton">Host</button>
+				{{#each games}}
 
-			{{/each}}
+				{{/each}}
+			</div>
 		</script>
 	</body>
 </html>

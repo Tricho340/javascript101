@@ -1,11 +1,25 @@
-define("UserLogin", ["backbone", "handlebars"], function(Backbone, Handlebars) {
+define("UserLogin", ["backbone", "handlebars", "jquery"], function(Backbone, Handlebars, $) {
+  console.log("Handlebars loaded.");
+  console.log(Handlebars);
   var UserLogin = Backbone.View.extend({
+    events: {
+      "click .loginButton": "loginButtonClickHandler"
+    },
+    loginButtonClickHandler: function() {
+      var usernameInputted = this.$el.find(".usernameTextInput").val();
+      this.model.set("username", usernameInputted);
+      this.trigger("usernameInputted");
+    },
     initialize: function() {
 
     },
     render: function() {
-      var compiledTemplateHtml = Handlebars.compile($("#userLoginTemplate").html());
-      this.el.html(compiledTemplateHtml);
+      var userLoginTemplateHandlebars = $("#userLoginTemplate").html();
+      console.log(userLoginTemplateHandlebars);
+      var templateFunction = Handlebars.compile(userLoginTemplateHandlebars);
+      var html = templateFunction();
+      console.log(html);
+      this.$el.html(html); // this.model.toJSON()
     }
   });
 
