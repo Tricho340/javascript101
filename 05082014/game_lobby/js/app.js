@@ -62,11 +62,12 @@ require(["jquery", "backbone", "GamesList", "UserLogin", "WaitingForPlayer", "Us
     $.ajax({
       type: "POST",
       url: API_ROOT_URL + "createGame/",
-      data: requestPayload,
+      data: JSON.stringify(requestPayload),
       success: function(data) {
         console.log("Create game() response received.");
         console.log(data);
       },
+      contentType: "application/json",
       dataType: "json"
     });
   }
