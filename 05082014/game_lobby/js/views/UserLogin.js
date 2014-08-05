@@ -1,6 +1,4 @@
 define("UserLogin", ["backbone", "handlebars", "jquery"], function(Backbone, Handlebars, $) {
-  console.log("Handlebars loaded.");
-  console.log(Handlebars);
   var UserLogin = Backbone.View.extend({
     events: {
       "click .loginButton": "loginButtonClickHandler"
