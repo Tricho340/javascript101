@@ -1,0 +1,23 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<script data-main="js/app" src="bower_components/requirejs/require.js"></script>
+
+		<script id="userLoginTemplate" type="text/x-handlebars-template">
+			<input type="text" class="usernameTextInput">
+			<button class="loginButton">Save</button>
+		</script>
+
+		<script id="waitingForPlayerTemplate" type="text/x-handlebars-template">
+			<p>Waiting for another player...</p>
+		</script>
+
+		<script id="gamesListView" type="text/x-handlebars-template">
+			<button class="hostGameButton">Host</button>
+			{{#each games}}
+
+			{{/each}}
+		</script>
+	</body>
+</html>

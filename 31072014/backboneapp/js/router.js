@@ -48,7 +48,7 @@ var GitHubAppRouter = Backbone.Router.extend({
       GitHubApp.Controllers.FrontCtrl.setView({
         partial: 'partials/user.tpl',
         view: GitHubApp.Views.User,
-        model: result
+        model: user
       });
       GitHubApp.Controllers.FrontCtrl.render();
     });
